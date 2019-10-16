@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from core.models import Evento
 
 # Create your views here.
@@ -24,6 +24,15 @@ def divide(req, a, b):
   divide = a / b
   return HttpResponse('<h1>{} / {} = {}'.format(a, b, divide))
 
+def index(req):
+  return redirect('/agenda')
+
 def getEventos(req, titulo):
   evento = Evento.objects.get(titulo = titulo)
   return HttpResponse('<h1>{}'.format(evento.descricao))
+
+def lista_eventos(req):
+  usuario = req.user
+  evento = Evento.objects.filter(usuario=usuario)
+  dados = { 'eventos': evento }
+  return render(req, 'agenda.html', dados)
