@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, HttpResponse
+from core.models import Evento
 
 # Create your views here.
 def hello(req, nome):
@@ -22,3 +23,7 @@ def multiplica(req, a, b):
 def divide(req, a, b):
   divide = a / b
   return HttpResponse('<h1>{} / {} = {}'.format(a, b, divide))
+
+def getEventos(req, titulo):
+  evento = Evento.objects.get(titulo = titulo)
+  return HttpResponse('<h1>{}'.format(evento.descricao))
