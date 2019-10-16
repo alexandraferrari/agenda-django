@@ -26,4 +26,5 @@ urlpatterns = [
     path('subtrai/<int:a>/<int:b>', views.subtrai),
     path('multiplica/<int:a>/<int:b>', views.multiplica),
     path('divide/<int:a>/<int:b>', views.divide),
+    path('eventos/<titulo>', views.getEventos)
 ]
