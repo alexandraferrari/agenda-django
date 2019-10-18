@@ -1,7 +1,7 @@
 db.sqlite3
-venv/
 .vscode/
 /**/__pycache__/
 /**/*.pyc
 info.txt
 /**/migrations
+ENV/
