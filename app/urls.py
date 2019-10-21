@@ -21,14 +21,10 @@ from django.views.generic import RedirectView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # path('hello/<nome>', views.hello),
-    url(r'hello/(?P<nome>[\w]+)', views.hello),
-    url(r'soma/(?P<a>[\d]+)/(?P<b>[\d]+)', views.soma),
     # path('', views.index),
     path('', RedirectView.as_view(url = '/agenda/')),
-    path('subtrai/<int:a>/<int:b>', views.subtrai),
-    path('multiplica/<int:a>/<int:b>', views.multiplica),
-    path('divide/<int:a>/<int:b>', views.divide),
-    path('eventos/<titulo>', views.getEventos),
     path('agenda/', views.lista_eventos),
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login),
+    path('logout/', views.logout_user),
 ]
